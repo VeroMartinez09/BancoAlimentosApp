@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">BAMX</string>
+    <string name="username">usuario</string>
+    <string name="password">contraseña</string>
+    <string name="forgotPassword">forgotPassword</string>
 </resources>
