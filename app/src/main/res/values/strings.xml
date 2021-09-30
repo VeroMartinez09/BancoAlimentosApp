@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">BAMX</string>
+    <string name="edtUsername">Usuario</string>
+    <string name="edtPassword">Contraseña</string>
+    <string name="btnLogin">Iniciar sesión</string>
+
+    <string name="edtFolio">Folio</string>
+    <string name="edtTienda">Tienda</string>
+    <string name="edtResponsable">Responsable</string>
+    <string name="edtRol">Rol</string>
+    <string name="btnProductos">Productos</string>
+
+    <string name="txtFechaHora">Fecha y hora</string>
+    <string name="txtUbicacion">Dirección</string>
+    <string name="txtSucursal">Determinante_Sucursal</string>
+    <string name="txtResponsable">Nombre compelto</string>
+    <string name="txtAbarrote">Cantidad</string>
+    <string name="txtFrutaVerdura">Cantidad</string>
+    <string name="txtPan">Cantidad</string>
+    <string name="txtNoComestible">Cantidad</string>
+    <string name="txtTotal">Cantidad</string>
+    <string name="btnEditar">Editar</string>
+    <string name="btnEnviar">Enviar</string>
+
 </resources>
