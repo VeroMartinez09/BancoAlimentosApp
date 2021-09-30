@@ -3,17 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
         <entry key="..\:/Users/carlo/Documents/BancoAPP/BancoAlimentosApp/app/src/main/res/layout/activity_main.xml" value="0.2777777777777778" />
+        <entry key="..\:/Users/carlo/Documents/BancoAPP/BancoAlimentosApp/app/src/main/res/layout/activity_personalizado.xml" value="0.3037037037037037" />
+        <entry key="..\:/Users/carlo/Documents/BancoAPP/BancoAlimentosApp/app/src/main/res/layout/operador_donativoespontaneo.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/carlo/Documents/BancoAPP/BancoAlimentosApp/app/src/main/res/layout/operador_donativoregistrado.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/carlo/Documents/BancoAPP/BancoAlimentosApp/app/src/main/res/layout/operador_registrardonativo.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/carlo/Documents/BancoAPP/BancoAlimentosApp/app/src/main/res/layout/operador_tienda.xml" value="0.3037037037037037" />
         <entry key="..\:/Users/verit/AndroidStudioProjects/BAMX/app/src/main/res/layout/activity_main.xml" value="0.11851851851851852" />
-=======
-        <entry key="..\:/Users/verit/AndroidStudioProjects/BAMX/app/src/main/res/drawable/button_rounded.xml" value="0.32083333333333336" />
-        <entry key="..\:/Users/verit/AndroidStudioProjects/BAMX/app/src/main/res/drawable/form_rounded.xml" value="0.32083333333333336" />
-        <entry key="..\:/Users/verit/AndroidStudioProjects/BAMX/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/verit/AndroidStudioProjects/BAMX/app/src/main/res/layout/operador_donativoespontaneo.xml" value="0.3278985507246377" />
-        <entry key="..\:/Users/verit/AndroidStudioProjects/BAMX/app/src/main/res/layout/operador_donativoregistrado.xml" value="0.3278985507246377" />
-        <entry key="..\:/Users/verit/AndroidStudioProjects/BAMX/app/src/main/res/layout/operador_registrardonativo.xml" value="0.3333333333333333" />
->>>>>>> 46a5dc308dfccc38bac7b296e861eca0344a7269
       </map>
     </option>
   </component>
