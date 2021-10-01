@@ -1,5 +1,7 @@
 package mx.tec.bamx.Operador
 
+import android.widget.Button
+
 class Operador (
     var name: String,
     var logo: Int,

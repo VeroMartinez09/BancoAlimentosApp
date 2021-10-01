@@ -15,7 +15,7 @@ class OPersonalizado : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_personalizado)
 
-        val lstPizza = findViewById<ListView>(R.id.lstStore)
+        val lstOperador = findViewById<ListView>(R.id.lstStore)
 
         val datos = listOf(
             Operador("Walmart", R.drawable.walmart, "Blvrd Luis Donaldo Colosio 2009, Los Jales, Coscotitlán, 42064 Pachuca de Soto, Hgo.", "Activo"),
@@ -29,13 +29,7 @@ class OPersonalizado : AppCompatActivity() {
             datos
         )
 
-        lstPizza.adapter = adaptador
-        lstPizza.setOnItemClickListener { parent, view, position, id ->
-            val intent = Intent(this@OPersonalizado, MainActivity::class.java)
-            intent.putExtra("nombre", datos[position].name)
-            intent.putExtra("descripcion", datos[position].location)
-            intent.putExtra("precio", datos[position].precio)
-            startActivity(intent)
-        }
+        lstOperador.adapter = adaptador
+
     }
 }
