@@ -13,4 +13,12 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="titleTextColor">@color/white</item>
+        <item name="android:layout_height">80dp</item>
+        <!--<item name="navigationIcon">@drawable/manzana_icon</item> -->
+        <!-- <item name="closeIcon">@drawable/log_out</item> -->
+    </style>
 </resources>
