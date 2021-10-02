@@ -22,4 +22,18 @@
     <string name="btnEditar">Editar</string>
     <string name="btnEnviar">Enviar</string>
 
+    <string-array name="sucursales">
+        <item>Seleccione sucursal</item>
+        <item>Casa Alonso</item>
+        <item>Oxxo Gobernadores</item>
+        <item>Café Central Plaza Bugambilia</item>
+        <item>Biscochos Y Pasteles Alicia</item>
+        <item>Unilever Holanda</item>
+        <item>Agroparque Yecapixtla</item>
+        <item>La Costeña</item>
+        <item>Ganaderos Productores de Leche Alpura</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
