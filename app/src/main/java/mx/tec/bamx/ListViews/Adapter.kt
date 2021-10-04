@@ -1,4 +1,4 @@
-package mx.tec.bamx.Operador
+package mx.tec.bamx.ListViews
 
 import android.content.Context
 import android.content.Intent
@@ -9,7 +9,6 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import mx.tec.bamx.MainActivity
 import mx.tec.bamx.R
 
@@ -43,9 +42,14 @@ class Adapter (val context: Context,
         val imagen = view.findViewById(R.id.imgStore) as ImageView
         val nombre = view.findViewById(R.id.txtNameStore) as TextView
         val direccion = view.findViewById(R.id.txtLocation) as TextView
-        val precio = view.findViewById(R.id.txtPrecio) as TextView
-      //  var btn = view.findViewById(R.id.btnRegistro) as Button
+        val status = view.findViewById(R.id.txtPrecio) as TextView
+        var btnRegistro = view.findViewById(R.id.btnRegistro) as Button
 
+        btnRegistro.setOnClickListener {
+            println("CLICK")
+            val intent = Intent(context, MainActivity::class.java)
+            context.startActivity(intent)
+        }
 
 
         //Extraer elemento del D/S
@@ -54,7 +58,7 @@ class Adapter (val context: Context,
         nombre.text =  elemento.name
         direccion.text = elemento.location
         imagen.setImageResource(elemento.logo)
-        precio.text = elemento.precio
+        status.text = elemento.status
 
 
         return view;

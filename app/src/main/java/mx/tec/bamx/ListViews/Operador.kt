@@ -1,11 +1,9 @@
-package mx.tec.bamx.Operador
-
-import android.widget.Button
+package mx.tec.bamx.ListViews
 
 class Operador (
     var name: String,
     var logo: Int,
     var location: String,
-    var precio: String,
+    var status: String,
 ){
 }

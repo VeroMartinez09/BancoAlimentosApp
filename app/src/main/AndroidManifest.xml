@@ -11,7 +11,7 @@
         android:theme="@style/Theme.BAMX">
 
         <activity
-            android:name=".Operador.OPersonalizado"
+            android:name=".ListViews.OPersonalizadoAlmacen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
