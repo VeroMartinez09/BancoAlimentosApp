@@ -9,8 +9,8 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import mx.tec.bamx.MainActivity
 import mx.tec.bamx.R
+import mx.tec.bamx.RegistrarDonativo
 
 
 class Adapter (val context: Context,
@@ -47,7 +47,7 @@ class Adapter (val context: Context,
 
         btnRegistro.setOnClickListener {
             println("CLICK")
-            val intent = Intent(context, MainActivity::class.java)
+            val intent = Intent(context, RegistrarDonativo::class.java)
             context.startActivity(intent)
         }
 
