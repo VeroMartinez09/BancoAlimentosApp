@@ -20,8 +20,12 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
-            android:parentActivityName=".LogIn"/>
+            android:name=".DonativoRegistrado"
+            android:parentActivityName=".RegistrarDonativo"/>
+
+        <activity
+            android:name=".RegistrarDonativo"
+            android:parentActivityName=".DonativoRegistrado"/>
 
 
     </application>
