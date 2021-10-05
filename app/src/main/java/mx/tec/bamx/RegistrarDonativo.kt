@@ -30,9 +30,5 @@ class RegistrarDonativo : Fragment() {
         }
 
         return view
-
-
     }
-
-
 }
