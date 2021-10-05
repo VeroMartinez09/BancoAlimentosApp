@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/toolbar"
-    tools:context=".MainActivity">
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -67,10 +67,5 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Área dinámica-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/contenedor"
-        android:orientation="vertical" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

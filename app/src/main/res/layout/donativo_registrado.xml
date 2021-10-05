@@ -12,6 +12,9 @@
         android:layout_height="match_parent"
         tools:context=".DonativoRegistrado">
 
+        <include
+            layout="@layout/toolbar"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView"

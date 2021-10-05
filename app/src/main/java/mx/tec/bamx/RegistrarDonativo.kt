@@ -1,34 +1,35 @@
 package mx.tec.bamx
 
-import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.util.AttributeSet
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.core.view.GravityCompat
-import kotlinx.android.synthetic.main.fragment_registrar_donativo_a.*
-import kotlinx.android.synthetic.main.fragment_registrar_donativo_a.view.*
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.registrar_donativo.*
+import kotlinx.android.synthetic.main.toolbar.*
 
-class RegistrarDonativo : Fragment() {
+class RegistrarDonativo : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.registrar_donativo)
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        var view = inflater.inflate(R.layout.fragment_registrar_donativo_a, container, false)
+       /* supportActionBar?.title = "Operador"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)*/
 
-        view.btnProductos.setOnClickListener {
-            println("Diste click en el boton")
-            requireActivity().supportFragmentManager.beginTransaction().apply{
-                replace(R.id.contenedor, DonativoRegistrado())
-                commit()
-            }
+        icon_Back.setOnClickListener{
+            val intent = Intent(this, DonativoRegistrado::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
         }
 
-        return view
+        //btnProductos.setOnClickListener {
+        //    println("Diste click en el boton")
+            //requireActivity().supportFragmentManager.beginTransaction().apply{
+             //   replace(R.id.contenedor, DonativoRegistrado())
+             //   commit()
+            // }
+
+            /* val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent) */
+        //}
     }
 }
