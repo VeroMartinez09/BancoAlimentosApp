@@ -90,7 +90,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/img1"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/abarrotes" />
@@ -103,7 +103,7 @@
                 android:text="Abarrote" />
 
             <EditText
-                android:id="@+id/editTextNumber9"
+                android:id="@+id/edtADD"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
@@ -117,7 +117,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/img2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/frutas" />
@@ -130,7 +130,7 @@
                 android:text="Fruta y verdura" />
 
             <EditText
-                android:id="@+id/editTextNumber3"
+                android:id="@+id/edtFVDD"
                 android:layout_width="82dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -143,7 +143,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/img3"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/pan" />
@@ -156,7 +156,7 @@
                 android:text="Pan" />
 
             <EditText
-                android:id="@+id/editTextNumber4"
+                android:id="@+id/edtPDD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -171,7 +171,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/img4"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/nocomestible" />
@@ -184,7 +184,7 @@
                 android:text="No comestibles" />
 
             <EditText
-                android:id="@+id/editTextNumber2"
+                android:id="@+id/edtBDD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -235,7 +235,7 @@
             android:gravity="center">
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btnDDC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"

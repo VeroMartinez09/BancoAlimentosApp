@@ -1,5 +1,6 @@
 package mx.tec.bamx.ListViews
 
+
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -9,13 +10,14 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import mx.tec.bamx.OperadorRegistro.DetalleDonativo
+import mx.tec.bamx.OperadorRegistro.DetalleEntrega
 import mx.tec.bamx.R
-import mx.tec.bamx.RegistrarDonativo
 
 
-class Adapter (val context: Context,
+class AdapterAlmacen (val context: Context,
                val layout: Int,
-               val dataSource: List <Operador> ): BaseAdapter(){
+               val dataSource: List <Entregas> ): BaseAdapter(){
 
     override fun getCount(): Int {
         return dataSource.size
@@ -44,21 +46,22 @@ class Adapter (val context: Context,
         val direccion = view.findViewById(R.id.txtLocation) as TextView
         val btnRegistro = view.findViewById(R.id.btnRegistro) as Button
 
-        btnRegistro.setOnClickListener {
-            println("CLICK")
-            val intent = Intent(context, RegistrarDonativo::class.java)
-            intent.putExtra("nombre", nombre.text.toString())
-            context.startActivity(intent)
-        }
 
 
         //Extraer elemento del D/S
-        val elemento = getItem(p0) as Operador
+        val elemento = getItem(p0) as Entregas
 
         nombre.text =  elemento.name
         direccion.text = elemento.location
         imagen.setImageResource(elemento.logo)
 
+
+        btnRegistro.setOnClickListener {
+            println("CLICK")
+            val intent = Intent(context, DetalleEntrega::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            context.startActivity(intent)
+        }
 
         return view;
     }
