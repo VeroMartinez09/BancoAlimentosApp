@@ -11,10 +11,12 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/CardEntregaT"
-        android:layout_width="390dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|center_vertical"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
         android:backgroundTint="#FBF1DD"
         card_view:cardCornerRadius="10dp"
         card_view:cardElevation="10dp">

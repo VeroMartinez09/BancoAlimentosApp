@@ -4,10 +4,11 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ListView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import mx.tec.bamx.R
 
-class OPersonalizado : Activity() {
+class OPersonalizado : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
