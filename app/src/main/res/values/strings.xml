@@ -22,20 +22,13 @@
     <string name="btnEditar">Editar</string>
     <string name="btnEnviar">Enviar</string>
 
-    <string-array name="sucursales">
-        <item>Seleccione sucursal</item>
-        <item>Casa Alonso</item>
-        <item>Oxxo Gobernadores</item>
-        <item>Café Central Plaza Bugambilia</item>
-        <item>Biscochos Y Pasteles Alicia</item>
-        <item>Unilever Holanda</item>
-        <item>Agroparque Yecapixtla</item>
-        <item>La Costeña</item>
-        <item>Ganaderos Productores de Leche Alpura</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="almacen">Almacen</string>
-    <string name="stores">Stores</string>
+    <string name="txtBodega">Bodega: </string>
+    <string name="btnContinuar">Continuar</string>
+    <string name="titulo">Enviar información</string>
+    <string name="mensaje">¿Está seguro que desea realizar esta acción?</string>
+    <string name="no">NO</string>
+    <string name="si">SI</string>
+    <string name="ok">¡Datos enviados correctamente!</string>
+
 
 </resources>

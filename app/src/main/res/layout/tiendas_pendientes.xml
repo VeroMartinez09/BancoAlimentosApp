@@ -8,31 +8,33 @@
     android:orientation="vertical">
 
     <include
-        android:id="@+id/include2"
-        layout="@layout/toolbar" />
-
+        layout="@layout/toolbar"
+        app:tint="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewx"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="80dp"
         android:gravity="center"
-        android:text="Entregas pendientes"
+        android:text="Tiendas pendientes"
+        android:textColor="#000000"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginTop="10dp" />
 
     <ListView
-        android:id="@+id/LstAlmacen"
+        android:id="@+id/lstStore"
         android:layout_width="415dp"
         android:layout_height="415dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewx"
         app:layout_constraintVertical_bias="0.0" />
 
     <View
@@ -40,23 +42,24 @@
         android:layout_height="5dp"
         android:background="@color/naranja"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LstAlmacen"
+        app:layout_constraintTop_toBottomOf="@+id/lstStore"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/CardEntregaP"
+        android:id="@+id/CardEntregaT"
         android:layout_width="150dp"
         android:layout_height="110dp"
         android:layout_gravity="center"
         android:layout_marginBottom="8dp"
+        android:backgroundTint="#FFC269"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/CardAlmacenP"
+        app:layout_constraintEnd_toStartOf="@+id/CardAlmacenT"
         app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LstAlmacen"
-        card_view:cardElevation = "10dp"
-        card_view:cardCornerRadius="10dp" >
+        app:layout_constraintTop_toBottomOf="@+id/lstStore"
+        card_view:cardCornerRadius="10dp"
+        card_view:cardElevation="10dp">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -67,15 +70,14 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/CardAlmacenP"
+        android:id="@+id/CardAlmacenT"
         android:layout_width="150dp"
         android:layout_height="110dp"
         android:layout_gravity="center"
         android:layout_marginEnd="20dp"
-        android:backgroundTint="#FFC269"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LstAlmacen"
+        app:layout_constraintTop_toBottomOf="@+id/lstStore"
         app:layout_constraintVertical_bias="0.454"
         card_view:cardCornerRadius="10dp"
         card_view:cardElevation="10dp">
