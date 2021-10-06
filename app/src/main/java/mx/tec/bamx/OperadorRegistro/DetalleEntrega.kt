@@ -7,7 +7,6 @@ import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import mx.tec.bamx.ListViews.Adapter
-import mx.tec.bamx.ListViews.OPersonalizadoAlmacen
 import mx.tec.bamx.ListViews.Operador
 import mx.tec.bamx.R
 

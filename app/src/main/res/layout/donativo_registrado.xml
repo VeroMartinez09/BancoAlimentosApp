@@ -17,7 +17,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/txtDonativo"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
@@ -37,7 +37,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/txtDonativo">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -104,6 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/form_noeditable"
+                    android:gravity="center_vertical"
                     android:text="@string/txtSucursal"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -128,6 +129,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/form_noeditable"
+                    android:gravity="center_vertical"
                     android:text="@string/edtResponsable"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -162,6 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/form_noeditable"
+                    android:gravity="center"
                     android:text="@string/txtAbarrote"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -186,6 +189,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/form_noeditable"
+                    android:gravity="center"
                     android:text="@string/txtFrutaVerdura"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -210,6 +214,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/form_noeditable"
+                    android:gravity="center"
                     android:text="@string/txtPan"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -234,6 +239,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/form_noeditable"
+                    android:gravity="center"
                     android:text="@string/txtNoComestible"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -265,6 +271,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/form_noeditable"
+                    android:gravity="center"
                     android:text="@string/txtTotal"
                     android:textSize="18sp" />
             </LinearLayout>

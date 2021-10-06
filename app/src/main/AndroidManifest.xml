@@ -12,6 +12,12 @@
         <activity
             android:name=".LogIn"
             android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity
@@ -28,17 +34,13 @@
         </activity>
 
         <activity
-            android:name=".ListViews.OPersonalizado"
+            android:name=".ListViews.TiendasPendientes"
             android:exported="true"
            >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".ListViews.OPersonalizadoAlmacen"
+            android:name=".ListViews.EntregasPendientes"
             android:exported="true">
 
         </activity>
@@ -48,7 +50,14 @@
 
         <activity
             android:name=".RegistrarDonativo"
-            android:parentActivityName=".ListViews.OPersonalizado"/>
+            android:parentActivityName=".ListViews.TiendasPendientes"/>
+
+        <activity
+            android:name=".DetalleEntrega"
+            android:parentActivityName=".ListViews.TiendasPendientes"/>
+        <activity
+            android:name=".DetalleDonativo"
+            android:parentActivityName=".ListViews.EntregasPendientes"/>
 
 
     </application>

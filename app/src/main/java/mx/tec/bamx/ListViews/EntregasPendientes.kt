@@ -5,14 +5,13 @@ import android.os.Bundle
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import mx.tec.bamx.OperadorRegistro.DetalleDonativo
 import mx.tec.bamx.R
 
-class OPersonalizadoAlmacen : AppCompatActivity() {
+class EntregasPendientes : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_personalizado2)
+        setContentView(R.layout.entregas_pendientes)
         val lstOperador = findViewById<ListView>(R.id.LstAlmacen)
 
         val card1 = findViewById<CardView>(R.id.CardEntregaP)
@@ -45,15 +44,15 @@ class OPersonalizadoAlmacen : AppCompatActivity() {
 
             )
         val adaptador = AdapterAlmacen(
-            this@OPersonalizadoAlmacen,
-            R.layout.operador_tienda,
+            this@EntregasPendientes,
+            R.layout.lst_tienda,
             datos
         )
 
         lstOperador.adapter = adaptador
 
         card1.setOnClickListener{
-            val intent = Intent(this@OPersonalizadoAlmacen, OPersonalizado::class.java)
+            val intent = Intent(this@EntregasPendientes, TiendasPendientes::class.java)
             startActivity(intent)
         }
 
