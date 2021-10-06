@@ -20,15 +20,14 @@ class DetalleDonativo : AppCompatActivity() {
 
 
 
-        btnDDC.setOnClickListener {
+        btnContinuar.setOnClickListener {
             val intent = Intent(this, DonativoRegistrado::class.java)
-
             intent.putExtra("nombre", nombre)
             intent.putExtra("responsable", responsable)
-            intent.putExtra("abarrote", edtADD.text.toString())
-            intent.putExtra("fruta", edtFVDD.text.toString())
-            intent.putExtra("pan", edtPDD.text.toString())
-            intent.putExtra("nocomestible", edtBDD.text.toString())
+            intent.putExtra("abarrote", txtAbarroteCant.text.toString())
+            intent.putExtra("fruta", txtFrutaVCant.text.toString())
+            intent.putExtra("pan", txtPanCant.text.toString())
+            intent.putExtra("nocomestible", txtNoComerCant.text.toString())
 
             startActivity(intent)
         }
