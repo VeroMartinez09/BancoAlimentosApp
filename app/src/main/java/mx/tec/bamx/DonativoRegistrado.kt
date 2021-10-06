@@ -23,6 +23,24 @@ class DonativoRegistrado : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent) */
         }
+        val nombre = intent.getStringExtra("nombre")
+        val responsable = intent.getStringExtra("responsable")
+        val abarrote = intent.getStringExtra("abarrote")
+        val fruta = intent.getStringExtra("fruta")
+        val pan = intent.getStringExtra("pan")
+        val nocomestible = intent.getStringExtra("nocomestible")
+
+        txtAbarrote.text = abarrote
+        txtFrutaVerdura.text = fruta
+        txtPan.text = pan
+        txtNoComestible.text = nocomestible
+        txtResponsable.text = responsable
+        txtSucursal.text = nombre
+
+        val total: Int
+        total = abarrote.toString().toInt() + fruta.toString().toInt() + pan.toString().toInt() + nocomestible.toString().toInt()
+        txtTotal.text = total.toString()
+
 
         icon_Back.setOnClickListener{
             val intent = Intent(this, RegistrarDonativo::class.java)
