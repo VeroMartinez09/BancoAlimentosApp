@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/CardEntregaT"
-        android:layout_width="390dp"
-        android:layout_height="wrap_content"
+        android:layout_width="380dp"
+        android:layout_height="120dp"
         android:layout_gravity="center|center_vertical"
-        android:layout_marginTop="10dp"
         android:backgroundTint="#FBF1DD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         card_view:cardCornerRadius="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="10dp"
         card_view:cardElevation="10dp">
 
 
@@ -26,24 +32,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|top"
             android:text="TextView"
+            android:textColor="@color/black"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/txtLocation"
-            android:layout_width="159dp"
+            android:layout_width="230dp"
             android:layout_height="80dp"
             android:layout_gravity="bottom|center"
-            android:gravity="center"
+            android:layout_marginStart="60dp"
             android:text="TextView" />
-
-        <Button
-            android:id="@+id/btnRegistro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|end"
-            android:layout_margin="10dp"
-            android:backgroundTint="#FF5722"
-            android:text="Ver" />
 
         <ImageView
             android:id="@+id/imgStore"
@@ -53,4 +51,4 @@
             tools:srcCompat="@tools:sample/avatars" />
     </androidx.cardview.widget.CardView>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

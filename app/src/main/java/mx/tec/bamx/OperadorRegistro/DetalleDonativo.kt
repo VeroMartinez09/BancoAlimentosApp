@@ -4,10 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.detalle_donativo.*
-import kotlinx.android.synthetic.main.registrar_donativo.*
-import kotlinx.android.synthetic.main.toolbar.*
 import mx.tec.bamx.DonativoRegistrado
 import mx.tec.bamx.R
+import mx.tec.bamx.RegistrarDonativo
 
 
 class DetalleDonativo : AppCompatActivity() {
@@ -34,5 +33,10 @@ class DetalleDonativo : AppCompatActivity() {
 
         /* supportActionBar?.title = "Operador"
          supportActionBar?.setDisplayHomeAsUpEnabled(true)*/
+        ic_Close.setOnClickListener {
+            val intent = Intent(this, RegistrarDonativo::class.java)
+            startActivity(intent)
+        }
+
     }
 }
