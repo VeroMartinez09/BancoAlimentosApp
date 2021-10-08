@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.detalle_donativo.*
 class DetalleDonativo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.detalle_entrega)
+        setContentView(R.layout.detalle_donativo)
 
 
         ic_Close.setOnClickListener{

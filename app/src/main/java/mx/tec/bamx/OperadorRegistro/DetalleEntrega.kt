@@ -11,7 +11,7 @@ class DetalleEntrega : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.detalle_entrega)
-         close.setOnClickListener {
+         ic_close.setOnClickListener {
              val intent = Intent(this, EntregasPendientes::class.java)
              startActivity(intent)
          }

@@ -6,8 +6,13 @@ import android.os.Bundle
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.toolbar.*
+import kotlinx.android.synthetic.main.toolbar.icon_salir
+import kotlinx.android.synthetic.main.toolbarnoflecha.*
+import mx.tec.bamx.DetalleEntrega
 import mx.tec.bamx.R
+import mx.tec.bamx.RegistrarDonativo
 
 class EntregasPendientes : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,8 +22,6 @@ class EntregasPendientes : AppCompatActivity() {
         val lstOperador = findViewById<ListView>(R.id.LstAlmacen)
 
         val card1 = findViewById<CardView>(R.id.CardEntregaP)
-        val sharedPreferences = getSharedPreferences("login",
-            Context.MODE_PRIVATE)
 
         val datos = listOf(
             Entregas(
@@ -55,28 +58,48 @@ class EntregasPendientes : AppCompatActivity() {
 
         lstOperador.adapter = adaptador
 
+        lstOperador.setOnItemClickListener { parent, view, position, id ->
+            val intent = Intent(this@EntregasPendientes, DetalleEntrega::class.java)
+            intent.putExtra("operario", datos[position].name)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+        }
+
         card1.setOnClickListener{
             val intent = Intent(this@EntregasPendientes, TiendasPendientes::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
 
         icon_salir.setOnClickListener {
-            println("DISTE CLICK BRO")
-            with(sharedPreferences.edit()){
-                remove("usuario")
-                commit()
-            }
-            finish()
+            logout()
         }
 
-        icon_Back.setOnClickListener {
-            println("DISTE CLICK BRO")
-            with(sharedPreferences.edit()){
-                remove("usuario")
-                commit()
-            }
-            finish()
-        }
+    }
 
+    fun logout() {
+        icon_salir.setOnClickListener{
+            println("DISTE CLICK BRO")
+
+            val sharedPreferences = getSharedPreferences("login",
+                Context.MODE_PRIVATE)
+
+            MaterialAlertDialogBuilder(this)
+                .setCancelable(false)
+                .setTitle(resources.getString(R.string.tituloS))
+                .setMessage(resources.getString(R.string.mensajeS))
+                .setNegativeButton(resources.getString(R.string.no)) { dialog, which ->
+                    // Respond to negative button press
+                }
+                .setPositiveButton(resources.getString(R.string.si)) { dialog, which ->
+
+                    with(sharedPreferences.edit()){
+                        remove("usuario")
+                        commit()
+                    }
+                    this.finish()
+                }
+                .show()
+        }
     }
 }

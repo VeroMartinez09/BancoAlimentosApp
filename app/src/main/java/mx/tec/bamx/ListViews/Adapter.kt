@@ -42,15 +42,14 @@ class Adapter (val context: Context,
         val imagen = view.findViewById(R.id.imgStore) as ImageView
         val nombre = view.findViewById(R.id.txtNameStore) as TextView
         val direccion = view.findViewById(R.id.txtLocation) as TextView
-        val btnRegistro = view.findViewById(R.id.btnRegistro) as Button
 
-        btnRegistro.setOnClickListener {
+        /*btnRegistro.setOnClickListener {
             println("CLICK")
             val intent = Intent(context, RegistrarDonativo::class.java)
             intent.putExtra("nombre", nombre.text.toString())
             context.startActivity(intent)
         }
-
+*/
 
         //Extraer elemento del D/S
         val elemento = getItem(p0) as Operador

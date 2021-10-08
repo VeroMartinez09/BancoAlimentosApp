@@ -24,12 +24,16 @@
 
     <string name="txtBodega">Bodega: </string>
     <string name="btnContinuar">Continuar</string>
-    <string name="titulo">Enviar información</string>
+    <string name="titulo">ENVIAR INFORMACIÓN</string>
     <string name="mensaje">¿Está seguro que desea realizar esta acción?</string>
     <string name="no">NO</string>
     <string name="si">SI</string>
     <string name="ok">¡Datos enviados correctamente!</string>
     <string name="detalle_de_entrega">Detalle de entrega</string>
+
+    <string name="tituloS">CERRAR SESIÓN</string>
+    <string name="mensajeS">¿Está seguro que desea cerrar sesión?</string>
+    <string name="error">¡Este campo es requerido!</string>
 
 
 </resources>

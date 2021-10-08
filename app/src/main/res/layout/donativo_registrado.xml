@@ -13,8 +13,7 @@
         tools:context=".DonativoRegistrado">
 
         <include
-            layout="@layout/toolbar"
-            app:layout_constraintTop_toTopOf="parent" />
+            layout="@layout/toolbar"/>
 
         <TextView
             android:id="@+id/txtDonativo"

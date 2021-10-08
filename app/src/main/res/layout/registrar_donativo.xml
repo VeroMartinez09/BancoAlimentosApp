@@ -12,8 +12,7 @@
         android:layout_height="match_parent">
 
         <include
-            layout="@layout/toolbar"
-            app:layout_constraintTop_toTopOf="parent" />
+            layout="@layout/toolbar"/>
 
         <TextView
             android:id="@+id/textView32"
@@ -137,7 +136,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/form_editable"
-                android:ems="10" />
+                android:ems="10"
+                android:hint="Nombre de quien entrega"
+                android:lines="1" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -153,7 +154,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/form_editable"
-                android:ems="10" />
+                android:ems="10"
+                android:hint="Rol que ocupa"
+                android:lines="1" />
 
             <Button
                 android:id="@+id/btnProductos"

@@ -62,26 +62,46 @@ class DonativoRegistrado : AppCompatActivity() {
                 .show()
         }
 
-
-        val sharedPreferences = getSharedPreferences("login",
-            Context.MODE_PRIVATE)
-
-        icon_salir.setOnClickListener {
-            println("DISTE CLICK BRO")
-            with(sharedPreferences.edit()){
-                remove("usuario")
-                commit()
-            }
-            finish()
-        }
         icon_Back.setOnClickListener{
             val intent = Intent(this, DetalleDonativo::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
 
         btnEditar.setOnClickListener {
             val intent = Intent(this@DonativoRegistrado, RegistrarDonativo::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
+        }
+
+        icon_salir.setOnClickListener {
+            logout()
+        }
+    }
+
+    fun logout() {
+        icon_salir.setOnClickListener{
+            println("DISTE CLICK BRO")
+
+            val sharedPreferences = getSharedPreferences("login",
+                Context.MODE_PRIVATE)
+
+            MaterialAlertDialogBuilder(this)
+                .setCancelable(false)
+                .setTitle(resources.getString(R.string.tituloS))
+                .setMessage(resources.getString(R.string.mensajeS))
+                .setNegativeButton(resources.getString(R.string.no)) { dialog, which ->
+                    // Respond to negative button press
+                }
+                .setPositiveButton(resources.getString(R.string.si)) { dialog, which ->
+
+                    with(sharedPreferences.edit()){
+                        remove("usuario")
+                        commit()
+                    }
+                    this.finish()
+                }
+                .show()
         }
     }
 }

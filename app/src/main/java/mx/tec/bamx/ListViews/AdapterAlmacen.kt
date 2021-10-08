@@ -43,7 +43,6 @@ class AdapterAlmacen (val context: Context,
         val imagen = view.findViewById(R.id.imgStore) as ImageView
         val nombre = view.findViewById(R.id.txtNameStore) as TextView
         val direccion = view.findViewById(R.id.txtLocation) as TextView
-        val btnRegistro = view.findViewById(R.id.btnRegistro) as Button
 
 
 
@@ -55,12 +54,12 @@ class AdapterAlmacen (val context: Context,
         imagen.setImageResource(elemento.logo)
 
 
-        btnRegistro.setOnClickListener {
+      /*  btnRegistro.setOnClickListener {
             println("CLICK")
             val intent = Intent(context, DetalleEntrega::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             context.startActivity(intent)
-        }
+        }*/
 
         return view;
     }
