@@ -1,20 +1,19 @@
 package mx.tec.bamx.OperadorRegistro
 
-import android.app.Activity
 import android.content.Intent
-import android.os.Bundle
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
-import mx.tec.bamx.ListViews.Adapter
-import mx.tec.bamx.ListViews.Operador
+import android.os.Bundle
+import kotlinx.android.synthetic.main.detalle_entrega.*
+import mx.tec.bamx.ListViews.EntregasPendientes
 import mx.tec.bamx.R
 
-class  DetalleEntrega : AppCompatActivity() {
+class DetalleEntrega : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.detalle_entrega)
-
+         close.setOnClickListener {
+             val intent = Intent(this, EntregasPendientes::class.java)
+             startActivity(intent)
+         }
     }
 }

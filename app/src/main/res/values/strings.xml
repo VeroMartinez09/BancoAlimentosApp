@@ -29,6 +29,7 @@
     <string name="no">NO</string>
     <string name="si">SI</string>
     <string name="ok">¡Datos enviados correctamente!</string>
+    <string name="detalle_de_entrega">Detalle de entrega</string>
 
 
 </resources>

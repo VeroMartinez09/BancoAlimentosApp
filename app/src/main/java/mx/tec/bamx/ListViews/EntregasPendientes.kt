@@ -1,10 +1,12 @@
 package mx.tec.bamx.ListViews
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import kotlinx.android.synthetic.main.toolbar.*
 import mx.tec.bamx.R
 
 class EntregasPendientes : AppCompatActivity() {
@@ -15,6 +17,8 @@ class EntregasPendientes : AppCompatActivity() {
         val lstOperador = findViewById<ListView>(R.id.LstAlmacen)
 
         val card1 = findViewById<CardView>(R.id.CardEntregaP)
+        val sharedPreferences = getSharedPreferences("login",
+            Context.MODE_PRIVATE)
 
         val datos = listOf(
             Entregas(
@@ -54,6 +58,24 @@ class EntregasPendientes : AppCompatActivity() {
         card1.setOnClickListener{
             val intent = Intent(this@EntregasPendientes, TiendasPendientes::class.java)
             startActivity(intent)
+        }
+
+        icon_salir.setOnClickListener {
+            println("DISTE CLICK BRO")
+            with(sharedPreferences.edit()){
+                remove("usuario")
+                commit()
+            }
+            finish()
+        }
+
+        icon_Back.setOnClickListener {
+            println("DISTE CLICK BRO")
+            with(sharedPreferences.edit()){
+                remove("usuario")
+                commit()
+            }
+            finish()
         }
 
     }

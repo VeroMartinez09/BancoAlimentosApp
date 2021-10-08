@@ -1,5 +1,6 @@
 package mx.tec.bamx
 
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -30,15 +31,10 @@ class DonativoRegistrado : AppCompatActivity() {
         txtResponsable.text = responsable
         txtSucursal.text = nombre
 
-        /*val total: Int
+        val total: Int
         total = abarrote.toString().toInt() + fruta.toString().toInt() + pan.toString().toInt() + nocomestible.toString().toInt()
-        txtTotal.text = total.toString()*/
+        txtTotal.text = total.toString()
 
-        icon_Back.setOnClickListener{
-            val intent = Intent(this, DetalleDonativo::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
-        }
 
         btnEnviar.setOnClickListener {
             MaterialAlertDialogBuilder(this)
@@ -66,9 +62,25 @@ class DonativoRegistrado : AppCompatActivity() {
                 .show()
         }
 
+
+        val sharedPreferences = getSharedPreferences("login",
+            Context.MODE_PRIVATE)
+
+        icon_salir.setOnClickListener {
+            println("DISTE CLICK BRO")
+            with(sharedPreferences.edit()){
+                remove("usuario")
+                commit()
+            }
+            finish()
+        }
+        icon_Back.setOnClickListener{
+            val intent = Intent(this, DetalleDonativo::class.java)
+            startActivity(intent)
+        }
+
         btnEditar.setOnClickListener {
             val intent = Intent(this@DonativoRegistrado, RegistrarDonativo::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
     }
