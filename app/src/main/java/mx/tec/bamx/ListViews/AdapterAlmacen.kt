@@ -10,7 +10,6 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import mx.tec.bamx.OperadorRegistro.DetalleDonativo
 import mx.tec.bamx.OperadorRegistro.DetalleEntrega
 import mx.tec.bamx.R
 

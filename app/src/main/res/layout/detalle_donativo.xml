@@ -107,7 +107,9 @@
                 android:background="@drawable/form_editable"
                 android:gravity="center"
                 android:hint="@string/txtAbarrote"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:inputType="number"/>
+
 
         </LinearLayout>
 
@@ -148,7 +150,8 @@
                 android:background="@drawable/form_editable"
                 android:gravity="center"
                 android:hint="@string/txtFrutaVerdura"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:inputType="number"/>
 
         </LinearLayout>
 
@@ -189,7 +192,8 @@
                 android:background="@drawable/form_editable"
                 android:gravity="center"
                 android:hint="@string/txtPan"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:inputType="number"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -229,7 +233,8 @@
                 android:background="@drawable/form_editable"
                 android:gravity="center"
                 android:hint="@string/txtNoComestible"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:inputType="number"/>
         </LinearLayout>
 
     </LinearLayout>
