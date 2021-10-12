@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.android.volley.RequestQueue
+import com.android.volley.toolbox.Volley
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.tiendas_pendientes.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -17,9 +19,39 @@ import mx.tec.bamx.R
 import mx.tec.bamx.RegistrarDonativo
 
 class TiendasPendientes : AppCompatActivity() {
+    lateinit var queue: RequestQueue
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tiendas_pendientes)
+
+/*
+        var queue = Volley.newRequestQueue(this@TiendasPendientes)
+        val url = "http://192.168.0.11:5000/operator/tiendas-pendientes/48"
+
+        val listaNombre = mutableListOf<String>() // mutableListOf para lista dinámica
+        val listaDireccion = mutableListOf<String>() // mutableListOf para lista dinámica
+        val listaListaStatus = mutableListOf<String>() // mutableListOf para lista dinámica
+
+
+        val listener = Response.Listener<JSONObject>{ response ->
+            //Log.e("RESPONSE", response.toString())
+            val array = response.getJSONArray("data")
+            for(i in 0 until array.length()) {
+                listaNombre.add(
+                    array.getJSONObject(i).getString("nombre")
+                )
+                listaDireccion.add(
+                    array.getJSONObject(i).getString("direccion")
+                )
+                listaListaStatus.add(
+                    array.getJSONObject(i).getString("dia")
+                )
+            }
+        }*/
+
+
+
         val lstOperador = findViewById<ListView>(R.id.lstStore)
         val card1 = findViewById<CardView>(R.id.CardAlmacenT)
 
@@ -43,7 +75,7 @@ class TiendasPendientes : AppCompatActivity() {
 
         lstOperador.setOnItemClickListener { parent, view, position, id ->
             val intent = Intent(this@TiendasPendientes, RegistrarDonativo::class.java)
-            intent.putExtra("operario", datos[position].name)
+            intent.putExtra("nombre", datos[position].name)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
