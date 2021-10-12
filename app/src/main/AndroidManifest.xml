@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mx.tec.bamx">
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
 
     <application
         android:allowBackup="false"
@@ -24,13 +26,13 @@
         <activity
             android:name=".OperadorRegistro.DetalleDonativo"
             android:exported="true"
-            android:parentActivityName=".RegistrarDonativo"></activity>
+            android:parentActivityName=".RegistrarDonativo" />
         <activity
             android:name=".ListViews.TiendasPendientes"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ListViews.EntregasPendientes"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".DonativoRegistrado"
             android:parentActivityName=".OperadorRegistro.DetalleDonativo" />
