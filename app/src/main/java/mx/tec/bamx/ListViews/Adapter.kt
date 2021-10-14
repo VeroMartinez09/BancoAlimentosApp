@@ -56,9 +56,7 @@ class Adapter (val context: Context,
 
         nombre.text =  elemento.name
         direccion.text = elemento.location
-        //imagen.setImageResource(elemento.logo)
-
-
+        imagen.setImageResource(elemento.Logo)
         return view;
     }
 

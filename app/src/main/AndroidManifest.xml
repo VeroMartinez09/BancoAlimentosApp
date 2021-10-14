@@ -40,12 +40,6 @@
         <activity
             android:name=".RegistrarDonativo"
             android:parentActivityName=".ListViews.TiendasPendientes" />
-        <activity
-            android:name=".DetalleEntrega"
-            android:parentActivityName=".ListViews.TiendasPendientes" />
-        <activity
-            android:name=".DetalleDonativo"
-            android:parentActivityName=".ListViews.EntregasPendientes" />
     </application>
 
 </manifest>
