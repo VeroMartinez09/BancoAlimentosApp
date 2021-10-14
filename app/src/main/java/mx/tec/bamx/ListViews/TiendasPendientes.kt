@@ -1,11 +1,9 @@
 package mx.tec.bamx.ListViews
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import com.android.volley.Request
@@ -18,7 +16,6 @@ import kotlinx.android.synthetic.main.tiendas_pendientes.*
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.toolbar.icon_salir
 import kotlinx.android.synthetic.main.toolbarnoflecha.*
-import mx.tec.bamx.DetalleEntrega
 import mx.tec.bamx.R
 import mx.tec.bamx.RegistrarDonativo
 import org.json.JSONObject
@@ -30,10 +27,13 @@ class TiendasPendientes : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tiendas_pendientes)
 
+        var user: Int = 48
+
 
         val queue = Volley.newRequestQueue(this@TiendasPendientes)
-        val url = "http://192.168.0.11:5000/operator/tiendas-pendientes/48"
+        val url = "http://192.168.0.11:5000/operator/tiendas-pendientes/${user}"
         val datos = mutableListOf<Operador>()
+
 
 
         val listener = Response.Listener<JSONObject>{ response ->
@@ -41,7 +41,13 @@ class TiendasPendientes : AppCompatActivity() {
             val array = response.getJSONArray("data")
             for(i in 0 until array.length()) {
                datos.add(
-                   Operador(array.getJSONObject(i).getString("nombre"), array.getJSONObject(i).getString("direccion"), array.getJSONObject(i).getString("dia")))
+                   Operador(array.getJSONObject(i).getString("nombre"),
+                       array.getJSONObject(i).getString("direccion"),
+                       array.getJSONObject(i).getString("dia"),
+                       array.getJSONObject(i).getInt("id"),
+                       R.drawable.walmart
+                   )
+               )
             }
             val adaptador = Adapter(this@TiendasPendientes,
                 R.layout.lst_tienda,
@@ -62,6 +68,8 @@ class TiendasPendientes : AppCompatActivity() {
         lstStore.setOnItemClickListener { parent, view, position, id ->
             val intent = Intent(this@TiendasPendientes, RegistrarDonativo::class.java)
             intent.putExtra("nombre", datos[position].name)
+            intent.putExtra("ubicacion", datos[position].location)
+            intent.putExtra("id", datos[position].id.toString())
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
