@@ -6,25 +6,26 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.donativo_registrado.*
 import kotlinx.android.synthetic.main.login.*
 import kotlinx.android.synthetic.main.registrar_donativo.*
+import kotlinx.android.synthetic.main.registrar_donativo_espontaneo.*
 import kotlinx.android.synthetic.main.toolbar.*
+import mx.tec.bamx.ListViews.TPEspontaneas
 import mx.tec.bamx.ListViews.TiendasPendientes
 import mx.tec.bamx.OperadorRegistro.DetalleDonativo
+import mx.tec.bamx.OperadorRegistro.DetalleDonativoEspontaneo
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class RegistrarDonativo : AppCompatActivity() {
-    lateinit var sharedPreferences: SharedPreferences
+class RegistrarDonativoEspontaneo : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.registrar_donativo)
+        setContentView(R.layout.registrar_donativo_espontaneo)
 
-        val sharedPreferences = getSharedPreferences("donativo",
+        val sharedPreferences = getSharedPreferences("donativo_espontaneo",
             Context.MODE_PRIVATE)
-
         val nombre = sharedPreferences.getString("strName", "@")
         val ubicacion = sharedPreferences.getString("strLocation", "@")
         val id = sharedPreferences.getString("strId", "@")
@@ -36,14 +37,17 @@ class RegistrarDonativo : AppCompatActivity() {
         //val ubicacion = intent.getStringExtra("ubicacion")
         //val id = intent.getStringExtra("id")
 
-        edtTienda.setText(nombre)
-        txtUbicacionRD.text = ubicacion
-        txtFechaHoraRD.text = SimpleDateFormat.format(Date())
 
-        val puesto = edtRol.text
+
+
+        edtTiendaDE.setText(nombre)
+        txtUbicacionDE.text = ubicacion
+        txtFechaHoraDE.text = SimpleDateFormat.format(Date())
+
+        val puesto = edtRolDE.text
 
         icon_Back.setOnClickListener {
-            val intent = Intent(this, TiendasPendientes::class.java)
+            val intent = Intent(this, TPEspontaneas::class.java)
             with(sharedPreferences.edit()){
                 remove("strName")
                 remove("strLocation")
@@ -56,11 +60,11 @@ class RegistrarDonativo : AppCompatActivity() {
             startActivity(intent)
         }
 
-        btnProductos.setOnClickListener {
-            if (edtResponsable.text.toString().length == 0)
-                edtResponsable.setError("¡Este campo es requerido!")
-            else if (edtRol.text.toString().length == 0)
-                edtRol.setError("¡Este campo es requerido!")
+        btnProductosDE.setOnClickListener {
+            if (edtResponsableDE.text.toString().length == 0)
+                edtResponsableDE.setError("¡Este campo es requerido!")
+            else if (edtRolDE.text.toString().length == 0)
+                edtRolDE.setError("¡Este campo es requerido!")
             else
             {
                 onClic()
@@ -75,13 +79,13 @@ class RegistrarDonativo : AppCompatActivity() {
 
 
     fun onClic() {
-        val intent = Intent(this, DetalleDonativo::class.java)
+        val intent = Intent(this, DetalleDonativoEspontaneo::class.java)
 
-        val sharedPreferences = getSharedPreferences("donativo",
+        val sharedPreferences = getSharedPreferences("donativo_espontaneo",
             Context.MODE_PRIVATE)
         with(sharedPreferences.edit()){
-            putString("strResponsable", edtResponsable.text.toString())
-            putString("strPuesto", edtRol.text.toString())
+            putString("strResponsable", edtResponsableDE.text.toString())
+            putString("strPuesto", edtRolDE.text.toString())
             commit()
         }
         startActivity(intent)
