@@ -82,7 +82,7 @@ class TiendasPendientes : AppCompatActivity(), LocationListener {
                             array.getJSONObject(i).getString("direccion"),
                             array.getJSONObject(i).getString("dia"),
                             array.getJSONObject(i).getInt("id"),
-                            R.drawable.walmart
+                            R.drawable.shops
                         )
                     )
                 }

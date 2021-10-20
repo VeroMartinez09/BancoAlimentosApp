@@ -52,7 +52,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
                     Espontanea(array.getJSONObject(i).getString("nombre"),
                         array.getJSONObject(i).getString("direccion"),
                         array.getJSONObject(i).getInt("id"),
-                        R.drawable.walmart
+                        R.drawable.shops
                     )
                 )
             }

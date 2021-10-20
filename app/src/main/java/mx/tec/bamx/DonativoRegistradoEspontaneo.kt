@@ -165,6 +165,7 @@ class DonativoRegistradoEspontaneo : AppCompatActivity() {
         datos.put("fecha", lista.get(7))
         datos.put("responsable", lista.get(1))
         datos.put("puesto_responsable",lista.get(2))
+        datos.put("folio", 42)
         datos.put("estatus", "pendiente")
         datos.put("estatusOperador", "completado")
 

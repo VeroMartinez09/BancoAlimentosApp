@@ -133,6 +133,7 @@ class DonativoRegistrado : AppCompatActivity() {
         datos.put("responsable", lista.get(1))
         datos.put("puesto_responsable",lista.get(2))
         datos.put("idOperador", idOperador)
+        datos.put("folio", 42)
         datos.put("estatus", "pendiente")
         datos.put("idTienda", lista.get(0))
 
