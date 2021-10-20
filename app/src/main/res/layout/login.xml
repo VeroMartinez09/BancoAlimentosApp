@@ -18,10 +18,19 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="50dp"
             android:orientation="vertical">
+
+            <TextView
+                android:text="¡Bienvenido Operador!"
+                android:textSize="27dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"/>
 
             <ImageView
                 android:id="@+id/imageView"
@@ -31,7 +40,8 @@
                 app:srcCompat="@drawable/logo_bamx_morelos" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:background="@drawable/form_noeditable"
                 android:orientation="vertical"
@@ -61,7 +71,7 @@
                     android:id="@+id/btnLogin"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/button_rounded"
                     android:text="Iniciar sesión" />
 
