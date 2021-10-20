@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
             android:gravity="center"
-            android:text="DONATIVO"
+            android:text="DONATIVO ESPONTANEO"
             android:textColor="#000000"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"

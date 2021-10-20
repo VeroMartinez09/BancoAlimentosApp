@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mx.tec.bamx">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
 
     <application
-        android:allowBackup="false"
+        android:networkSecurityConfig="@xml/network_config"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -13,6 +18,20 @@
             android:name=".OperadorRegistro.DetalleEntrega"
             android:exported="true" />
         <activity
+            android:name=".OperadorRegistro.DetalleDonativoEspontaneo"
+            android:exported="true" />
+        <activity
+            android:name=".DonativoRegistradoEspontaneo"
+            android:exported="true" />
+
+        <activity
+            android:name=".RegistrarDonativoEspontaneo"
+            android:exported="true" />
+        <activity
+            android:name=".ListViews.TPEspontaneas"
+            android:exported="true" />
+        <activity
+
             android:name=".LogIn"
             android:exported="true">
             <intent-filter>
@@ -24,25 +43,19 @@
         <activity
             android:name=".OperadorRegistro.DetalleDonativo"
             android:exported="true"
-            android:parentActivityName=".RegistrarDonativo"></activity>
+            android:parentActivityName=".RegistrarDonativo" />
         <activity
             android:name=".ListViews.TiendasPendientes"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ListViews.EntregasPendientes"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".DonativoRegistrado"
             android:parentActivityName=".OperadorRegistro.DetalleDonativo" />
         <activity
             android:name=".RegistrarDonativo"
             android:parentActivityName=".ListViews.TiendasPendientes" />
-        <activity
-            android:name=".DetalleEntrega"
-            android:parentActivityName=".ListViews.TiendasPendientes" />
-        <activity
-            android:name=".DetalleDonativo"
-            android:parentActivityName=".ListViews.EntregasPendientes" />
     </application>
 
 </manifest>

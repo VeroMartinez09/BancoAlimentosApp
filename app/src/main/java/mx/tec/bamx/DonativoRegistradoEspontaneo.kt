@@ -1,11 +1,9 @@
 package mx.tec.bamx
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.text.format.DateFormat.format
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -19,18 +17,19 @@ import kotlinx.android.synthetic.main.registrar_donativo.*
 import kotlinx.android.synthetic.main.toolbar.*
 import mx.tec.bamx.ListViews.TiendasPendientes
 import mx.tec.bamx.OperadorRegistro.DetalleDonativo
+import mx.tec.bamx.OperadorRegistro.DetalleDonativoEspontaneo
 import org.json.JSONObject
 import java.lang.String.format
 import java.text.MessageFormat.format
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DonativoRegistrado : AppCompatActivity() {
+class DonativoRegistradoEspontaneo : AppCompatActivity() {
     lateinit var queue: RequestQueue
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.donativo_registrado)
+        setContentView(R.layout.donativo_registrado_espontaneo)
 
         val SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
         queue = Volley.newRequestQueue(this)
@@ -84,15 +83,16 @@ class DonativoRegistrado : AppCompatActivity() {
                 }
                 .setPositiveButton(resources.getString(R.string.si)) { dialog, which ->
                     // Respond to positive button press
-                    CreateDonation(lista)
+                    //CreateDonation(lista)
                     //if check
+                    update(lista)
                     val builder = AlertDialog.Builder(this)
                     builder.setMessage(resources.getString(R.string.ok))
                     builder.setIcon(R.drawable.checked)
                     builder.setCancelable(false)
                     builder.setPositiveButton("OK") { dialogInterface: DialogInterface, i: Int ->
                         //Do something
-                        val intent = Intent(this@DonativoRegistrado, TiendasPendientes::class.java)
+                        val intent = Intent(this@DonativoRegistradoEspontaneo, TiendasPendientes::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                         startActivity(intent)
                     }
@@ -103,13 +103,13 @@ class DonativoRegistrado : AppCompatActivity() {
         }
 
         icon_Back.setOnClickListener{
-            val intent = Intent(this, DetalleDonativo::class.java)
+            val intent = Intent(this, DetalleDonativoEspontaneo::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
 
         btnEditar.setOnClickListener {
-            val intent = Intent(this@DonativoRegistrado, RegistrarDonativo::class.java)
+            val intent = Intent(this@DonativoRegistradoEspontaneo, RegistrarDonativoEspontaneo::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
@@ -119,37 +119,6 @@ class DonativoRegistrado : AppCompatActivity() {
         }
     }
 
-    fun CreateDonation(lista: List<String?>) {
-        val sharedPreferences2 = getSharedPreferences("login",
-            MODE_PRIVATE
-        )
-        val idOperador = sharedPreferences2.getString("idUser", "@")
-        val datos = JSONObject()
-        datos.put("kg_abarrotes",lista.get(3) )
-        datos.put("kg_frutas_verduras",lista.get(4) )
-        datos.put("kg_pan", lista.get(5))
-        datos.put("kg_no_comestibles",lista.get(6) )
-        datos.put("fecha", lista.get(7))
-        datos.put("responsable", lista.get(1))
-        datos.put("puesto_responsable",lista.get(2))
-        datos.put("idOperador", idOperador)
-        datos.put("estatus", "pendiente")
-        datos.put("idTienda", lista.get(0))
-
-
-        val jsonObjectRequest = JsonObjectRequest(
-            Request.Method.POST,
-            "http://192.168.0.8:5000/operator/registrar-donativo",
-            datos,
-            { response ->
-                Log.e("VOLLEYRESPONSE", response.toString())
-            },
-            { error ->
-                Log.e("VOLLEYRESPONSE", error.message!!)
-            }
-        )
-        queue.add(jsonObjectRequest)
-    }
 
 
     fun logout() {
@@ -178,5 +147,39 @@ class DonativoRegistrado : AppCompatActivity() {
                 }
                 .show()
         }
+    }
+
+    fun update(lista: List<String?>){
+        val sharedPreferences2 = getSharedPreferences("login",
+            MODE_PRIVATE
+        )
+        val idOperador = sharedPreferences2.getString("idUser", "@")
+        println("Operador " + idOperador + "Tienda " + lista.get(0))
+
+        val queue = Volley.newRequestQueue(this@DonativoRegistradoEspontaneo)
+        val datos = JSONObject()
+        datos.put("kg_abarrotes",lista.get(3) )
+        datos.put("kg_frutas_verduras",lista.get(4) )
+        datos.put("kg_pan", lista.get(5))
+        datos.put("kg_no_comestibles",lista.get(6) )
+        datos.put("fecha", lista.get(7))
+        datos.put("responsable", lista.get(1))
+        datos.put("puesto_responsable",lista.get(2))
+        datos.put("estatus", "pendiente")
+        datos.put("estatusOperador", "completado")
+
+        val jsonObjectRequest3 = JsonObjectRequest(
+            Request.Method.PATCH,
+            "http://192.168.0.8:5000/operator/actualizar-espontaneo/${lista.get(0).toString()}/${idOperador.toString()}",
+            datos,
+            { response ->
+                Log.e("VOLLEYRESPONSE", response.toString())
+            },
+            { error ->
+                Log.e("VOLLEYRESPONSE", error.message!!)
+            }
+
+        )
+        queue.add(jsonObjectRequest3)
     }
 }

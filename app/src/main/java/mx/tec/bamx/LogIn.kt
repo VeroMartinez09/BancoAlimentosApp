@@ -5,11 +5,16 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.login.*
 import mx.tec.bamx.ListViews.EntregasPendientes
 import mx.tec.bamx.ListViews.TiendasPendientes
+import org.json.JSONObject
 
 
 class LogIn : AppCompatActivity() {
@@ -18,6 +23,8 @@ class LogIn : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
+
+        var queue = Volley.newRequestQueue(this@LogIn)
 
         sharedPreferences = getSharedPreferences("login",
             Context.MODE_PRIVATE)
@@ -29,32 +36,43 @@ class LogIn : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val usuario = findViewById<EditText>(R.id.edtUsername)
-        val password = findViewById<EditText>(R.id.edtPassword)
 
 
         btnLogin.setOnClickListener {
             val intent = Intent(this@LogIn, TiendasPendientes::class.java)
             println("Diste click en el boton LogIn")
-            if(usuario.text.toString() == "Charles" && // <- Petición volley al API
-                password.text.toString() == "mando"){
-                // Usuario correcto
-                with(sharedPreferences.edit()){
-                    putString("usuario", usuario.text.toString())
-                    commit()
+            //    if(usuario.text.toString() == "Verito" && // <- Petición volley al API
+            //        password.text.toString() == "mando")
+
+            val datos = JSONObject()
+            datos.put("username", edtUsername.text.toString())
+            datos.put("contrasena", edtPassword.text.toString())
+
+            val jsonObjectRequest = JsonObjectRequest(
+                Request.Method.POST,
+                "http://192.168.0.8:5000/operator/login",
+                datos,
+                { response ->
+                    // Usuario correcto
+                    Log.e("VOLLEYRESPONSE", response.toString())
+                    val array =  response.getJSONObject("data")
+                    val idOperador = array.getString("id")
+                    with(sharedPreferences.edit()){
+                        putString("idUser", idOperador.toString())
+                        putString("usuario", edtUsername.text.toString())
+                        commit()
+                    }
+                    startActivity(intent)
+                },
+                { error ->
+                    // Usuario incorrecto
+                    Log.e("VOLLEYRESPONSE", error.message!!)
+                    Toast.makeText(this,
+                        "Usuario o contraseña incorrectas",
+                        Toast.LENGTH_LONG).show()
                 }
-                startActivity(intent)
-            }
-            else {
-                // Usuario incorrecto
-                Toast.makeText(this,
-                    "Usuario o contraseña incorrectas",
-                    Toast.LENGTH_LONG).show()
-            }
-
-            // Origen, Destino
-            //val intent = Intent(this@MainActivity, RegistrarDonativo::class.java)
-
+            )
+            queue.add(jsonObjectRequest)
         }
     }
 

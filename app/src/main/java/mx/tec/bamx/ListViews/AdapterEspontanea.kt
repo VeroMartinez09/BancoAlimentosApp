@@ -14,9 +14,9 @@ import mx.tec.bamx.OperadorRegistro.DetalleEntrega
 import mx.tec.bamx.R
 
 
-class AdapterAlmacen (val context: Context,
-               val layout: Int,
-               val dataSource: List <Entregas> ): BaseAdapter(){
+class AdapterEspontanea (val context: Context,
+                      val layout: Int,
+                      val dataSource: List <Espontanea> ): BaseAdapter(){
 
     override fun getCount(): Int {
         return dataSource.size
@@ -47,19 +47,19 @@ class AdapterAlmacen (val context: Context,
 
 
         //Extraer elemento del D/S
-        val elemento = getItem(p0) as Entregas
+        val elemento = getItem(p0) as Espontanea
 
         nombre.text =  elemento.name
         direccion.text = elemento.location
-        imagen.setImageResource(elemento.logo)
+        imagen.setImageResource(elemento.Logo)
 
 
-      /*  btnRegistro.setOnClickListener {
-            println("CLICK")
-            val intent = Intent(context, DetalleEntrega::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-            context.startActivity(intent)
-        }*/
+        /*  btnRegistro.setOnClickListener {
+              println("CLICK")
+              val intent = Intent(context, DetalleEntrega::class.java)
+              intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+              context.startActivity(intent)
+          }*/
 
         return view;
     }
