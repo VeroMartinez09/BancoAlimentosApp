@@ -35,6 +35,7 @@ import mx.tec.bamx.R
 import mx.tec.bamx.RegistrarDonativo
 import org.json.JSONArray
 import org.json.JSONObject
+import java.util.ArrayList
 
 class TiendasPendientes : AppCompatActivity(), LocationListener {
     lateinit var sharedPreferences: SharedPreferences
@@ -45,6 +46,8 @@ class TiendasPendientes : AppCompatActivity(), LocationListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tiendas_pendientes)
+        NoHay.visibility = View.GONE
+        btnEnspontaneas.visibility = View.GONE
 
         locationManager =  getSystemService(Context.LOCATION_SERVICE) as LocationManager
         txtUbi = findViewById(R.id.txtUbi)
@@ -61,10 +64,9 @@ class TiendasPendientes : AppCompatActivity(), LocationListener {
         println(idOperador)
 
         val queue = Volley.newRequestQueue(this@TiendasPendientes)
-        val url = "http://192.168.0.8:5000/operator/tiendas-pendientes/${idOperador}"
+        val url = "http://192.168.3.100:5000/operator/tiendas-pendientes/${idOperador}"
         val datos = mutableListOf<Operador>()
-
-
+        var lista = ArrayList<String>()
 
         val listener = Response.Listener<JSONObject>{ response ->
             //Log.e("RESPONSE", response.toString())
@@ -86,7 +88,6 @@ class TiendasPendientes : AppCompatActivity(), LocationListener {
                         )
                     )
                 }
-
             }
 
             val adaptador = Adapter(this@TiendasPendientes,
@@ -107,10 +108,11 @@ class TiendasPendientes : AppCompatActivity(), LocationListener {
                 putString("strId", datos[position].id.toString())
                 commit()
             }
+            intent.putStringArrayListExtra("lista", lista)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
-        val url2 = "http://192.168.0.8:5000/operator/tiendas-espontaneas/${idOperador}"
+        val url2 = "http://192.168.3.100:5000/operator/tiendas-espontaneas/${idOperador}"
 
         val listener2 = Response.Listener<JSONObject> { response ->
             val array = response.getJSONArray("data")
@@ -267,7 +269,7 @@ class TiendasPendientes : AppCompatActivity(), LocationListener {
 
         val jsonObjectRequest3 = JsonObjectRequest(
             Request.Method.PATCH,
-            "http://192.168.0.8:5000/operator/actualizar-operador/${idOperador}",
+            "http://192.168.3.100:5000/operator/actualizar-operador/${idOperador}",
             datos,
             { response ->
                 Log.e("VOLLEYRESPONSE", response.toString())

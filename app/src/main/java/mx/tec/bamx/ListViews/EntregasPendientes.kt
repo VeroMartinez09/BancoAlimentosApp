@@ -25,6 +25,7 @@ import org.json.JSONObject
 class EntregasPendientes : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val sharedPreferences2 = getSharedPreferences("login",
             MODE_PRIVATE
         )
@@ -32,12 +33,14 @@ class EntregasPendientes : AppCompatActivity() {
 
 
         setContentView(R.layout.entregas_pendientes)
+
+        NoHay.visibility = View.GONE
         val lstOperador = findViewById<ListView>(R.id.LstAlmacen)
 
         val card1 = findViewById<CardView>(R.id.CardEntregaP)
 
         val queue = Volley.newRequestQueue(this@EntregasPendientes)
-        val url = "http://192.168.0.8:5000/operator/proximas-entregas/${idOperador}"
+        val url = "http://192.168.3.100:5000/operator/proximas-entregas/${idOperador}"
         val datos = mutableListOf<Entregas>()
 
 

@@ -36,7 +36,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView32">
+            app:layout_constraintTop_toBottomOf="@+id/textView33">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -100,9 +100,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/form_noeditable"
-                android:ems="10"
                 android:focusable="false"
-                android:textColor="#C4C4C4" />
+                android:gravity="center_vertical"
+                android:textColor="#C4C4C4"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView11"
@@ -118,12 +119,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/form_noeditable"
-                android:ems="10"
                 android:focusable="false"
-                android:textColor="#C4C4C4" />
+                android:gravity="center_vertical"
+                android:textColor="#C4C4C4"
+                android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -136,9 +137,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/form_editable"
-                android:ems="10"
                 android:hint="Nombre de quien entrega"
-                android:lines="1" />
+                android:inputType="text"
+                android:lines="1"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -152,11 +154,11 @@
             <EditText
                 android:id="@+id/edtRolDE"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/form_editable"
-                android:ems="10"
                 android:hint="Rol que ocupa"
-                android:lines="1" />
+                android:lines="1"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/btnProductosDE"

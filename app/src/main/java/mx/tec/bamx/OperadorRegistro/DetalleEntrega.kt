@@ -31,10 +31,10 @@ class DetalleEntrega : AppCompatActivity() {
 
 
         val idB = intent.getStringExtra("bodega")
-        val url ="http://192.168.0.8:5000/operator/producto-bodega/${idB}/${idOperador}"
+        val url ="http://192.168.3.100:5000/operator/producto-bodega/${idB}/${idOperador}"
 
 
-        txtBodegaId.text = idB
+        txtBodegaId.text = "Bodega: " + idB
         val listener = Response.Listener<JSONObject>{ response ->
             Log.e("RESPONSE", response.toString())
             val array = response.getJSONArray("data")
@@ -43,6 +43,12 @@ class DetalleEntrega : AppCompatActivity() {
                 txtFrutaVCant.text = array.getJSONObject(i).getInt("kg_frutas_verduras").toString()
                 txtPanCant.text = array.getJSONObject(i).getInt("kg_pan").toString()
                 txtNoComerCant.text = array.getJSONObject(i).getInt("kg_no_comestibles").toString()
+
+                var total = array.getJSONObject(i).getInt("kg_abarrotes") +
+                        array.getJSONObject(i).getInt("kg_frutas_verduras") +
+                        array.getJSONObject(i).getInt("kg_pan") +
+                        array.getJSONObject(i).getInt("kg_no_comestibles")
+                txtTotalCant.text = total.toString()
             }
         }
 
@@ -58,6 +64,7 @@ class DetalleEntrega : AppCompatActivity() {
             error
         )
         queue.add(peticion)
+
 
 /*
         txtAbarroteCant.text = datos[0]

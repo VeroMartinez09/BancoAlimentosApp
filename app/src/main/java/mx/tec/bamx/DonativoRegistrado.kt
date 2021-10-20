@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.format.DateFormat.format
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
@@ -34,7 +35,6 @@ class DonativoRegistrado : AppCompatActivity() {
 
         val SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
         queue = Volley.newRequestQueue(this)
-        val lista = mutableListOf<String?>()
 
         val nombre = intent.getStringExtra("nombre")
         val idTienda = intent.getStringExtra("id")
@@ -47,15 +47,31 @@ class DonativoRegistrado : AppCompatActivity() {
         val nocomestible = intent.getStringExtra("nocomestible")
         val fecha : String = (SimpleDateFormat.format(Date())).toString()
 
+        var lista = intent.getStringArrayListExtra("lista") as ArrayList<String>
 
-        lista.add(idTienda)
-        lista.add(responsable)
-        lista.add(puesto)
-        lista.add(abarrote)
-        lista.add(fruta)
-        lista.add(pan)
-        lista.add(nocomestible)
-        lista.add(fecha)
+
+        if (idTienda != null) { // 0
+            lista.add(idTienda)
+        }
+        if (responsable != null) { // 1
+            lista.add(responsable)
+        }
+        if (puesto != null) { // 2
+            lista.add(puesto)
+        }
+        if (abarrote != null) { // 3
+            lista.add(abarrote)
+        }
+        if (fruta != null) { // 4
+            lista.add(fruta)
+        }
+        if (pan != null) { // 5
+            lista.add(pan)
+        }
+        if (nocomestible != null) { // 6
+            lista.add(nocomestible)
+        }
+        lista.add(fecha) // 7
 
 
         txtAbarrote.text = abarrote
@@ -85,31 +101,20 @@ class DonativoRegistrado : AppCompatActivity() {
                 .setPositiveButton(resources.getString(R.string.si)) { dialog, which ->
                     // Respond to positive button press
                     CreateDonation(lista)
-                    //if check
-                    val builder = AlertDialog.Builder(this)
-                    builder.setMessage(resources.getString(R.string.ok))
-                    builder.setIcon(R.drawable.checked)
-                    builder.setCancelable(false)
-                    builder.setPositiveButton("OK") { dialogInterface: DialogInterface, i: Int ->
-                        //Do something
-                        val intent = Intent(this@DonativoRegistrado, TiendasPendientes::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                        startActivity(intent)
-                    }
-
-                    builder.show()
                 }
                 .show()
         }
 
         icon_Back.setOnClickListener{
             val intent = Intent(this, DetalleDonativo::class.java)
+            intent.putStringArrayListExtra("lista", lista)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
 
         btnEditar.setOnClickListener {
             val intent = Intent(this@DonativoRegistrado, RegistrarDonativo::class.java)
+            intent.putStringArrayListExtra("lista", lista)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
@@ -139,13 +144,28 @@ class DonativoRegistrado : AppCompatActivity() {
 
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.POST,
-            "http://192.168.0.8:5000/operator/registrar-donativo",
+            "http://192.168.3.100:5000/operator/registrar-donativo",
             datos,
             { response ->
                 Log.e("VOLLEYRESPONSE", response.toString())
+                MaterialAlertDialogBuilder(this)
+                    .setCancelable(false)
+                    .setMessage(resources.getString(R.string.ok))
+                    .setPositiveButton("0K") { dialog, which ->
+                        // Respond to positive button press
+                        val intent = Intent(this@DonativoRegistrado, TiendasPendientes::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                    }
+                    .show()
             },
             { error ->
                 Log.e("VOLLEYRESPONSE", error.message!!)
+                Toast.makeText(
+                    this,
+                    "Algo salió mal, vuelve a intentarlo.",
+                    Toast.LENGTH_LONG
+                ).show()
             }
         )
         queue.add(jsonObjectRequest)

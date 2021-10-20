@@ -108,6 +108,8 @@
                 android:gravity="center"
                 android:hint="@string/txtAbarrote"
                 android:textSize="18sp"
+                android:digits="0123456789"
+                android:lines="1"
                 android:inputType="number"/>
 
 
@@ -151,6 +153,8 @@
                 android:gravity="center"
                 android:hint="@string/txtFrutaVerdura"
                 android:textSize="18sp"
+                android:digits="0123456789"
+                android:lines="1"
                 android:inputType="number"/>
 
         </LinearLayout>
@@ -193,6 +197,8 @@
                 android:gravity="center"
                 android:hint="@string/txtPan"
                 android:textSize="18sp"
+                android:digits="0123456789"
+                android:lines="1"
                 android:inputType="number"/>
         </LinearLayout>
 
@@ -234,6 +240,8 @@
                 android:gravity="center"
                 android:hint="@string/txtNoComestible"
                 android:textSize="18sp"
+                android:digits="0123456789"
+                android:lines="1"
                 android:inputType="number"/>
         </LinearLayout>
 

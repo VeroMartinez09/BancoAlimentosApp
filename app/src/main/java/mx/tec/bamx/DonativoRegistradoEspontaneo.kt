@@ -5,6 +5,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
@@ -83,21 +84,7 @@ class DonativoRegistradoEspontaneo : AppCompatActivity() {
                 }
                 .setPositiveButton(resources.getString(R.string.si)) { dialog, which ->
                     // Respond to positive button press
-                    //CreateDonation(lista)
-                    //if check
                     update(lista)
-                    val builder = AlertDialog.Builder(this)
-                    builder.setMessage(resources.getString(R.string.ok))
-                    builder.setIcon(R.drawable.checked)
-                    builder.setCancelable(false)
-                    builder.setPositiveButton("OK") { dialogInterface: DialogInterface, i: Int ->
-                        //Do something
-                        val intent = Intent(this@DonativoRegistradoEspontaneo, TiendasPendientes::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                        startActivity(intent)
-                    }
-
-                    builder.show()
                 }
                 .show()
         }
@@ -170,13 +157,28 @@ class DonativoRegistradoEspontaneo : AppCompatActivity() {
 
         val jsonObjectRequest3 = JsonObjectRequest(
             Request.Method.PATCH,
-            "http://192.168.0.8:5000/operator/actualizar-espontaneo/${lista.get(0).toString()}/${idOperador.toString()}",
+            "http://192.168.3.100:5000/operator/actualizar-espontaneo/${lista.get(0).toString()}/${idOperador.toString()}",
             datos,
             { response ->
                 Log.e("VOLLEYRESPONSE", response.toString())
+                MaterialAlertDialogBuilder(this)
+                    .setCancelable(false)
+                    .setMessage(resources.getString(R.string.ok))
+                    .setPositiveButton("0K") { dialog, which ->
+                        // Respond to positive button press
+                        val intent = Intent(this@DonativoRegistradoEspontaneo, TiendasPendientes::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                    }
+                    .show()
             },
             { error ->
                 Log.e("VOLLEYRESPONSE", error.message!!)
+                Toast.makeText(
+                    this,
+                    "Algo salió mal, vuelve a intentarlo.",
+                    Toast.LENGTH_LONG
+                ).show()
             }
 
         )

@@ -36,8 +36,6 @@ class LogIn : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-
         btnLogin.setOnClickListener {
             val intent = Intent(this@LogIn, TiendasPendientes::class.java)
             println("Diste click en el boton LogIn")
@@ -50,7 +48,7 @@ class LogIn : AppCompatActivity() {
 
             val jsonObjectRequest = JsonObjectRequest(
                 Request.Method.POST,
-                "http://192.168.0.8:5000/operator/login",
+                "http://192.168.3.100:5000/operator/login",
                 datos,
                 { response ->
                     // Usuario correcto

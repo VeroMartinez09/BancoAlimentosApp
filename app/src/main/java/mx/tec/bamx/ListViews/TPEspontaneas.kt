@@ -41,7 +41,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
         val idOperador = sharedPreferences2.getString("idUser", "@")
 
         val queue = Volley.newRequestQueue(this@TPEspontaneas)
-        val url = "http://192.168.0.8:5000/operator/tiendas-espontaneas/${idOperador}"
+        val url = "http://192.168.3.100:5000/operator/tiendas-espontaneas/${idOperador}"
         val datos = mutableListOf<Espontanea>()
 
         val listener = Response.Listener<JSONObject>{ response ->
