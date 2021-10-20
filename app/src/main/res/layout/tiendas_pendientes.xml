@@ -28,7 +28,7 @@
         android:id="@+id/textViewx"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:gravity="center"
         android:text="Tiendas pendientes"
         android:textColor="#000000"
@@ -54,14 +54,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/include"
         app:layout_constraintEnd_toEndOf="@+id/include"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lstStore">
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/CardEntregaT"
@@ -126,6 +124,32 @@
         app:layout_constraintHorizontal_bias="0.558"
         app:layout_constraintStart_toEndOf="@+id/txtUbi"
         app:layout_constraintTop_toBottomOf="@+id/textViewx" />
+
+    <LinearLayout
+        android:id="@+id/NoHay"
+        android:layout_width="413dp"
+        android:layout_height="675dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-2dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:text="Hora de descansar. No hay tiendas disponibles"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            card_view:srcCompat="@drawable/manzana" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

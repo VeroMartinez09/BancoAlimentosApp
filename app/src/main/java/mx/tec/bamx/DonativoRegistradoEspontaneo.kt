@@ -154,6 +154,7 @@ class DonativoRegistradoEspontaneo : AppCompatActivity() {
             MODE_PRIVATE
         )
         val idOperador = sharedPreferences2.getString("idUser", "@")
+        println("Operador " + idOperador + "Tienda " + lista.get(0))
 
         val queue = Volley.newRequestQueue(this@DonativoRegistradoEspontaneo)
         val datos = JSONObject()
@@ -164,14 +165,12 @@ class DonativoRegistradoEspontaneo : AppCompatActivity() {
         datos.put("fecha", lista.get(7))
         datos.put("responsable", lista.get(1))
         datos.put("puesto_responsable",lista.get(2))
-        datos.put("idOperador", 48)
         datos.put("estatus", "pendiente")
         datos.put("estatusOperador", "completado")
-        datos.put("idTienda", lista.get(0))
 
         val jsonObjectRequest3 = JsonObjectRequest(
             Request.Method.PATCH,
-            "http://192.168.0.8:5000/operator/actualizar-operador/${lista.get(0)}/${idOperador}",
+            "http://192.168.0.8:5000/operator/actualizar-espontaneo/${lista.get(0).toString()}/${idOperador.toString()}",
             datos,
             { response ->
                 Log.e("VOLLEYRESPONSE", response.toString())

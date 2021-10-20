@@ -69,16 +69,26 @@ class TiendasPendientes : AppCompatActivity(), LocationListener {
         val listener = Response.Listener<JSONObject>{ response ->
             //Log.e("RESPONSE", response.toString())
             val array = response.getJSONArray("data")
-            for(i in 0 until array.length()) {
-               datos.add(
-                   Operador(array.getJSONObject(i).getString("nombre"),
-                       array.getJSONObject(i).getString("direccion"),
-                       array.getJSONObject(i).getString("dia"),
-                       array.getJSONObject(i).getInt("id"),
-                       R.drawable.walmart
-                   )
-               )
+            if (array.isNull(0)) {
+                lstStore.visibility = View.GONE
+                NoHay.visibility = View.VISIBLE
+            } else {
+                NoHay.visibility = View.GONE
+                lstStore.visibility = View.VISIBLE
+                for (i in 0 until array.length()) {
+                    datos.add(
+                        Operador(
+                            array.getJSONObject(i).getString("nombre"),
+                            array.getJSONObject(i).getString("direccion"),
+                            array.getJSONObject(i).getString("dia"),
+                            array.getJSONObject(i).getInt("id"),
+                            R.drawable.walmart
+                        )
+                    )
+                }
+
             }
+
             val adaptador = Adapter(this@TiendasPendientes,
                 R.layout.lst_tienda,
                 datos

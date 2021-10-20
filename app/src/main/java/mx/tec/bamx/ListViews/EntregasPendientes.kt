@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -44,14 +45,21 @@ class EntregasPendientes : AppCompatActivity() {
         val listener = Response.Listener<JSONObject>{ response ->
             //Log.e("RESPONSE", response.toString())
             val array = response.getJSONArray("data")
-            for(i in 0 until array.length()) {
-                datos.add(
-                    Entregas(array.getJSONObject(i).getString("nombre"),
-                        R.drawable.almacen,
-                        array.getJSONObject(i).getString("direccion"),
-                        array.getJSONObject(i).getString("idBodega"),
+            if (array.isNull(0)) {
+                lstOperador.visibility = View.GONE
+                NoHay.visibility = View.VISIBLE
+            } else {
+                NoHay.visibility = View.GONE
+                lstOperador.visibility = View.VISIBLE
+                for(i in 0 until array.length()) {
+                    datos.add(
+                        Entregas(array.getJSONObject(i).getString("nombre"),
+                            R.drawable.almacen,
+                            array.getJSONObject(i).getString("direccion"),
+                            array.getJSONObject(i).getString("idBodega"),
+                        )
                     )
-                )
+                }
             }
             val adaptador = AdapterAlmacen(this@EntregasPendientes,
                 R.layout.lst_tienda,
